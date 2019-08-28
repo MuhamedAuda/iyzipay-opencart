@@ -48,7 +48,7 @@ class ControllerExtensionPaymentIyzico extends Controller {
 
 		/* Order Detail */
 		$iyzico = new stdClass;
-		$iyzico->locale 					  = $this->language->get('code');
+		$iyzico->locale 					  = 'en'; // to accept none english local to show checkout form at checkout
 		$iyzico->conversationId 			  = $order_id;
         $iyzico->price                        = $this->priceParser($this->itemPriceSubTotal($products) * $order_info['currency_value']);
         $iyzico->paidPrice                    = $this->priceParser($order_info['total'] * $order_info['currency_value']);
@@ -161,7 +161,7 @@ class ControllerExtensionPaymentIyzico extends Controller {
             
             $detail_object = new stdClass();
 
-            $detail_object->locale         = $this->language->get('code');
+            $detail_object->locale         = 'en'; // to accept none english local to show checkout form at checkout
             $detail_object->conversationId = $conversation_id;
             $detail_object->token          = $this->db->escape($this->request->post['token']);
 
